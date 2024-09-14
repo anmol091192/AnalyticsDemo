@@ -63,11 +63,13 @@ function DonutChartWithTable() {
   return (
     <div>
       <h2>{currentData === 'revenue' ? 'Revenue by Segment' : 'Operating Expenses Breakdown'}</h2>
+      <label htmlFor="data-filter">Select Data: </label> {/* Ensure correct association */}
       <FilterDropdown
+        id="data-filter" // Ensure the ID matches the htmlFor
         options={['Revenue by Segment', 'Operating Expenses Breakdown']}
         onChange={(value) => setCurrentData(value === 'Revenue by Segment' ? 'revenue' : 'expenses')}
       />
-      <div style={{ width: '60%', height: '300px', margin: '0 auto' }}>
+      <div style={{ width: '60%', height: '400px', margin: '0 auto' }}>
         <Doughnut data={chartData} options={chartOptions} />
       </div>
       <SortableTable columns={columns} data={tableData} />
