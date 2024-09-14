@@ -51,4 +51,4 @@ test('sorts table data when column header is clicked', () => {
   
   const sortedRows = getAllByRole('row');
   expect(sortedRows[1].textContent).toContain('Product B'); // Sorted order should place Product B first
-});
+});w

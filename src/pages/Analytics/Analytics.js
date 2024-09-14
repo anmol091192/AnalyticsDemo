@@ -8,7 +8,7 @@ import StackedBarChart from './components/StackedBarChart';
 function Analytics() {
   return (
     <div className='analytics-wrapper'>
-      <h1>Analytics Page</h1>
+      <h1>Analytics</h1>
       <div className='toggle-section'>
         <Toggle label="Operating Expenses Breakdown">
           <DonutChartWithTable />
