@@ -2,6 +2,8 @@ import React from 'react';
 import './Analytics.css';
 import Toggle from '../../components/Toggle/Toggle';
 import DonutChartWithTable from './components/DonutChartWithTable';
+import AmazonLineChart from './components/LineChart';
+import StackedBarChart from './components/StackedBarChart';
 
 function Analytics() {
   return (
@@ -11,11 +13,11 @@ function Analytics() {
         <Toggle label="Sales data">
           <DonutChartWithTable />
         </Toggle>
-        <Toggle label="Section 2">
-          <p>This is the content for Section 2.</p>
+        <Toggle label="Financial Performance Metrics - 2023">
+          <AmazonLineChart />
         </Toggle>
-        <Toggle label="Section 3">
-          <p>This is the content for Section 3.</p>
+        <Toggle label="Detailed Financial Statements & Cost Structure Analysis">
+          <StackedBarChart />
         </Toggle>
       </div>
     </div>
