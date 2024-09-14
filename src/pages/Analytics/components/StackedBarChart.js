@@ -12,7 +12,6 @@ function StackedBarChart() {
   const productSales = [8000, 9000, 10000, 12000];
   const serviceRevenue = [2000, 2500, 3000, 3500];
   const otherIncome = [1000, 1500, 2000, 2500];
-  const cogs = [4000, 4500, 5000, 5500];
   const operatingExpenses = [3000, 3200, 3500, 3700];
   const taxes = [1000, 1200, 1300, 1500];
 
@@ -34,11 +33,6 @@ function StackedBarChart() {
         label: 'Other Income ($)',
         data: otherIncome,
         backgroundColor: 'rgba(153, 102, 255, 0.6)',
-      },
-      {
-        label: 'COGS ($)',
-        data: cogs,
-        backgroundColor: 'rgba(255, 99, 132, 0.6)',
       },
       {
         label: 'Operating Expenses ($)',
@@ -90,7 +84,6 @@ function StackedBarChart() {
     { key: 'productSales', label: 'Product Sales ($)' },
     { key: 'serviceRevenue', label: 'Service Revenue ($)' },
     { key: 'otherIncome', label: 'Other Income ($)' },
-    { key: 'cogs', label: 'COGS ($)' },
     { key: 'operatingExpenses', label: 'Operating Expenses ($)' },
     { key: 'taxes', label: 'Taxes ($)' },
   ];
@@ -101,7 +94,6 @@ function StackedBarChart() {
     productSales: productSales[index],
     serviceRevenue: serviceRevenue[index],
     otherIncome: otherIncome[index],
-    cogs: cogs[index],
     operatingExpenses: operatingExpenses[index],
     taxes: taxes[index],
   }));

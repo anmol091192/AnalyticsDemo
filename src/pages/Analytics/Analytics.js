@@ -10,7 +10,7 @@ function Analytics() {
     <div className='analytics-wrapper'>
       <h1>Analytics Page</h1>
       <div className='toggle-section'>
-        <Toggle label="Sales data">
+        <Toggle label="Operating Expenses Breakdown">
           <DonutChartWithTable />
         </Toggle>
         <Toggle label="Financial Performance Metrics - 2023">

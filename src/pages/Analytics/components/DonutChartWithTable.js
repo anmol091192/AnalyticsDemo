@@ -2,33 +2,36 @@ import React, { useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import FilterDropdown from '../../../components/FilterDropdown';
+import SortableTable from '../../../components/SortableTable';
 
 // Register the necessary components with Chart.js
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function DonutChartWithTable() {
-  // Sample data for total sales
-  const salesData = [
-    { store: 'Walmart', sales: 5000 },
-    { store: 'Target', sales: 3000 },
-    { store: 'Instacart', sales: 2000 },
-    { store: 'Amazon', sales: 7000 },
-    { store: 'Others', sales: 1000 },
+  // Sample data for Revenue by Segment and Operating Expenses Breakdown
+  const revenueData = [
+    { segment: 'Product Sales', value: 12000 },
+    { segment: 'Service Revenue', value: 5000 },
+    { segment: 'Other Income', value: 3000 },
   ];
 
-  const [filteredStore, setFilteredStore] = useState('');
+  const operatingExpensesData = [
+    { category: 'COGS', value: 6000 },
+    { category: 'Marketing', value: 2000 },
+    { category: 'R&D', value: 1500 },
+    { category: 'General & Administrative', value: 2500 },
+  ];
 
-  // Filter data based on selected store
-  const filteredData = filteredStore
-    ? salesData.filter((item) => item.store === filteredStore)
-    : salesData;
+  const [currentData, setCurrentData] = useState('revenue');
+
+  const dataToDisplay = currentData === 'revenue' ? revenueData : operatingExpensesData;
 
   // Prepare data for the Donut chart
   const chartData = {
-    labels: filteredData.map((item) => item.store),
+    labels: dataToDisplay.map((item) => item.segment || item.category),
     datasets: [
       {
-        data: filteredData.map((item) => item.sales),
+        data: dataToDisplay.map((item) => item.value),
         backgroundColor: [
           '#FF6384',
           '#36A2EB',
@@ -45,32 +48,29 @@ function DonutChartWithTable() {
     maintainAspectRatio: false,
   };
 
+  // Columns for the table
+  const columns = [
+    { key: 'segment', label: currentData === 'revenue' ? 'Segment' : 'Expense Category' },
+    { key: 'value', label: 'Value ($)' },
+  ];
+
+  // Table data
+  const tableData = dataToDisplay.map((item) => ({
+    segment: item.segment || item.category,
+    value: item.value,
+  }));
+
   return (
     <div>
-      <h2>Sales Data</h2>
+      <h2>{currentData === 'revenue' ? 'Revenue by Segment' : 'Operating Expenses Breakdown'}</h2>
       <FilterDropdown
-        options={salesData.map((item) => item.store)}
-        onChange={setFilteredStore}
+        options={['Revenue by Segment', 'Operating Expenses Breakdown']}
+        onChange={(value) => setCurrentData(value === 'Revenue by Segment' ? 'revenue' : 'expenses')}
       />
-      <div style={{ width: '50%', margin: '0 auto' }}>
+      <div style={{ width: '60%', height: '300px', margin: '0 auto' }}>
         <Doughnut data={chartData} options={chartOptions} />
       </div>
-      <table style={{ width: '50%', margin: '20px auto', borderCollapse: 'collapse' }}>
-        <thead>
-          <tr>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Store</th>
-            <th style={{ border: '1px solid #ddd', padding: '8px' }}>Total Sales</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredData.map((item, index) => (
-            <tr key={index}>
-              <td style={{ border: '1px solid #ddd', padding: '8px' }}>{item.store}</td>
-              <td style={{ border: '1px solid #ddd', padding: '8px' }}>{item.sales}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <SortableTable columns={columns} data={tableData} />
     </div>
   );
 }
