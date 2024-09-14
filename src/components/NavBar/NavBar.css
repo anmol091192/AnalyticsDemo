@@ -1,0 +1,11 @@
+.navbar {
+    background-color: #4CAF50; /* Customize navbar color */
+}
+
+.nav-link {
+    color: rgb(148, 134, 134) !important;
+}
+
+.nav-link:hover {
+    color: #4f4747 !important;
+}
