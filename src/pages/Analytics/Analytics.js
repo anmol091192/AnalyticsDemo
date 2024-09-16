@@ -17,8 +17,6 @@ function Analytics() {
   };
 
   const { fromDate, toDate } = useContext(AppContext);
-  const [activeOppsData, setActiveOppsData] = useState({ labels: [], datasets: [] });
-  const [salesOpportunitiesData, setSalesOpportunitiesData] = useState({ labels: [], datasets: [] });
   const [donutChartData, setDonutChartData] = useState(null); // State for Donut Chart data
   const [currentData, setCurrentData] = useState('revenue'); // Track current data type for Donut Chart
 

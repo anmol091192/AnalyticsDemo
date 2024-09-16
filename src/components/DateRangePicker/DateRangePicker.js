@@ -32,7 +32,7 @@ function DateRangePicker() {
     <div className="date-range-picker-container">
       <div className="date-range-picker">
         <div className="date-picker-item">
-          <label>Select Date: </label>
+          <label>From: </label>
           <DatePicker
             onChange={handleFromDateChange}
             value={fromDate}
@@ -42,8 +42,8 @@ function DateRangePicker() {
             clearIcon={null} // Remove the clear icon for a cleaner look
           />
         </div>
-        <div> to </div>
         <div className="date-picker-item">
+          <label>To: </label>
           <DatePicker
             onChange={handleToDateChange}
             value={toDate}

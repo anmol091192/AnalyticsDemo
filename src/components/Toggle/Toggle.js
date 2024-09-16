@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Toggle.css';
 
 function ToggleSwitch({ label, children }) {
-  const [isOn, setIsOn] = useState(false);
+  const [isOn, setIsOn] = useState(true);
 
   const toggleSwitch = () => {
     setIsOn(!isOn);

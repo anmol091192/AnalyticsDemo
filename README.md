@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# Analytics Demo Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Deployed on render
 
-## Available Scripts
+https://analyticsdemo.onrender.com/
 
-In the project directory, you can run:
+## Setup on Local Machine
 
-### `npm start`
+### Step 1: Clone the Repository
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Clone the repository to your local machine using the following command:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+git clone https://github.com/your-username/analytics-demo-project.git
+```
 
-### `npm test`
+### Step 2: Install Dependencies and Build the Frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Navigate to the project directory and run the following command to install all dependencies and build the React app:
 
-### `npm run build`
+```bash
+npm install && npm run build
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Step 3: Start the Node.js Server
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Open a new terminal in the project directory and start the backend server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+node server.js
+```
 
-### `npm run eject`
+### Step 4: Start the React App (Frontend Server)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+In the initial terminal, start the React development server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The app should now be running, and you can access it in your browser at `http://localhost:3000`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Folder Structure
 
-## Learn More
+The app's frontend is organized into the following folder structure:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **src**
+  - **components**
+    - **DateRangePicker**
+    - **NavBar**
+    - **Toggle**
+  - **pages**
+    - **Analytics**
+    - **Dashboard**
+    - **Home**
+    - **Portfolio**
+  - `App.js`
+  - `AppContext.js` 
+- `server.js`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Components Folder**: Contains all the shared components to be used across different pages.
 
-### Code Splitting
+**Pages Folder**: Contains individual pages. Each page folder includes a `components` subfolder for components specific to that page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Features and Usage
 
-### Analyzing the Bundle Size
+### ChartJS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This app uses **ChartJS** to render various charts, providing a dynamic visual representation of the data.
 
-### Making a Progressive Web App
+### State Management
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Context API** is used for state management across the app. This allows the data to be synchronized across all pages. For example, changing the dates in the `DateRangePicker` will update the data in all relevant charts.
 
-### Advanced Configuration
+### Table Component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Table component is created which has basic sorting functionality
 
-### Deployment
+### Home Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The Home page allows users to search through the analytics data. Currently, only the following dataset is available for search. In a production environment, the data would be queried from a database:
 
-### `npm run build` fails to minify
+```json
+[
+  { "id": 1, "category": "Revenue", "name": "Product Sales", "value": 12000 },
+  { "id": 2, "category": "Revenue", "name": "Service Revenue", "value": 5000 },
+  { "id": 3, "category": "Revenue", "name": "Other Income", "value": 3000 },
+  { "id": 4, "category": "Expenses", "name": "COGS", "value": 6000 },
+  { "id": 5, "category": "Expenses", "name": "Marketing", "value": 2000 },
+  { "id": 6, "category": "Expenses", "name": "R&D", "value": 1500 },
+  { "id": 7, "category": "Expenses", "name": "General & Administrative", "value": 2500 }
+]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Future Improvements
+
+- **Lazy Loading for Chart Data**: Retrieve chart data on demand rather than loading everything during the initial load. This would improve the performance of the website.
+- **Role-Based Content Visibility**: Use tabs on the analytics page to show and hide sections depending on the user who is logged in, enhancing user experience and security.
+
