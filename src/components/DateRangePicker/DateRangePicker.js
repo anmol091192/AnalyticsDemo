@@ -5,8 +5,8 @@ import 'react-calendar/dist/Calendar.css';
 import './DateRangePicker.css';
 import { AppContext } from '../../AppContext';
 
-function DateRangePicker({ onDateChange }) {
-  const { toDate, setToDate, fromDate, setFromDate } = useContext(AppContext);
+function DateRangePicker() {
+  const { fromDate, setFromDate, toDate, setToDate } = useContext(AppContext);
   const [error, setError] = useState(null); // State to handle error message
 
   // Handle date changes and notify the parent component
@@ -16,7 +16,6 @@ function DateRangePicker({ onDateChange }) {
     } else {
       setError(null);
       setFromDate(date);
-      onDateChange(date, toDate);
     }
   };
 
@@ -26,7 +25,6 @@ function DateRangePicker({ onDateChange }) {
     } else {
       setError(null);
       setToDate(date);
-      onDateChange(fromDate, date);
     }
   };
 
@@ -38,19 +36,21 @@ function DateRangePicker({ onDateChange }) {
           <DatePicker
             onChange={handleFromDateChange}
             value={fromDate}
-            format="MM-dd-y"
+            format="dd-MM-y"
             className="custom-date-picker"
             calendarIcon={null}
+            clearIcon={null} // Remove the clear icon for a cleaner look
           />
         </div>
-        <div> - </div>
+        <div> to </div>
         <div className="date-picker-item">
           <DatePicker
             onChange={handleToDateChange}
             value={toDate}
-            format="MM-dd-y"
+            format="dd-MM-y"
             className="custom-date-picker"
             calendarIcon={null}
+            clearIcon={null} // Remove the clear icon for a cleaner look
           />
         </div>
       </div>

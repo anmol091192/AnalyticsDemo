@@ -1,37 +1,43 @@
-  .date-range-picker-container {
-    width: fit-content;
-    padding: 8px;
+.date-range-picker-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Add spacing from other components */
   }
   
   .date-range-picker {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     align-items: center;
+    background-color: #f9f9f9;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
   
   .date-picker-item {
     display: flex;
-    flex-direction: row;
     align-items: center;
   }
   
   .date-picker-item label {
-    margin-right: 8px;
     font-weight: 500;
+    margin-right: 10px;
     color: #333;
   }
   
   .custom-date-picker {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-size: 0.9rem;
+    border: none;
+    background-color: transparent;
   }
   
   .custom-date-picker input {
     border: none;
     outline: none;
     font-size: 0.9rem;
+    color: #333;
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
   }
   
   .custom-date-picker .react-date-picker__wrapper {
@@ -45,6 +51,8 @@
     gap: 5px;
   }
   
-  .custom-date-picker .react-date-picker__calendar-button {
-    display: none; /* Hide the default calendar icon */
+  .error-message {
+    color: red;
+    margin-left: 15px;
+    font-size: 0.9rem;
   }

@@ -1,11 +1,11 @@
 // server.js
 const express = require('express');
-const cors = require('cors');
-
+const path = require('path');
 const app = express();
-const PORT = 3002;
+const port = process.env.PORT || 5000;
 
-app.use(cors()); // Enable CORS for cross-origin requests
+// Serve static files from the React app's build directory
+app.use(express.static(path.join(__dirname, 'build')));
 
 // Dummy data for the search
 const data = [
@@ -104,7 +104,7 @@ app.get('/api/chart', (req, res) => {
             labels: ['Product Sales', 'Service Revenue', 'Other Income'],
             datasets: [
             {
-                data: [12000, 5000, 3000],
+                data: isFirstHalf ? [1000, 15000, 2000] : [12000, 5000, 3000],
                 backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
             },
             ],
@@ -116,7 +116,7 @@ app.get('/api/chart', (req, res) => {
             labels: ['COGS', 'Marketing', 'R&D', 'General & Administrative'],
             datasets: [
             {
-                data: [6000, 2000, 1500, 2500],
+                data: isFirstHalf ? [2000, 1000, 1000, 200] : [6000, 2000, 1500, 2500],
                 backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
             },
             ],
@@ -132,6 +132,11 @@ app.get('/api/chart', (req, res) => {
     res.json(responseData);
   });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  // Serve the React frontend for any other routes not handled by the API
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
