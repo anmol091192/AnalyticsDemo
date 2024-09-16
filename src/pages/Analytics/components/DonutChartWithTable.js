@@ -69,7 +69,7 @@ function DonutChartWithTable() {
         options={['Revenue by Segment', 'Operating Expenses Breakdown']}
         onChange={(value) => setCurrentData(value === 'Revenue by Segment' ? 'revenue' : 'expenses')}
       />
-      <div style={{ width: '60%', height: '400px', margin: '0 auto' }}>
+      <div style={{ width: '60%', height: '250px', margin: '0 auto' }}>
         <Doughnut data={chartData} options={chartOptions} />
       </div>
       <SortableTable columns={columns} data={tableData} />

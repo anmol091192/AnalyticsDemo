@@ -11,7 +11,7 @@ function NavBar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav ms-auto"> {/* Added ms-auto to move items to the right */}
             <li className="nav-item">
               <Link className="nav-link" to="/">Home</Link>
             </li>
@@ -20,6 +20,9 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/portfolio">Portfolio</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/dashboard">Dashboard</Link>
             </li>
           </ul>
         </div>

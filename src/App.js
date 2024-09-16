@@ -3,20 +3,26 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Analytics from './pages/Analytics/Analytics';
 import Portfolio from './pages/Portfolio/Portfolio';
+import Dashboard from './pages/Dashboard/Dashboard';
+import { AppProvider } from './AppContext';
+
 import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
-    <Router>
-      <div>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-        </Routes>
-      </div>
-    </Router>
+    <AppProvider>
+      <Router>
+        <div>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </div>
+      </Router>
+    </AppProvider>
   );
 }
 

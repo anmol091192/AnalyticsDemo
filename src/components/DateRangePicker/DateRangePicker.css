@@ -1,0 +1,50 @@
+.date-range-picker-container {
+    width: fit-content;
+    margin-top: 20px;
+  }
+  
+  .date-range-picker {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .date-picker-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .date-picker-item label {
+    margin-right: 8px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .custom-date-picker {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 0.9rem;
+  }
+  
+  .custom-date-picker input {
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+  }
+  
+  .custom-date-picker .react-date-picker__wrapper {
+    border: none;
+    box-shadow: none;
+  }
+  
+  .custom-date-picker .react-date-picker__inputGroup {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .custom-date-picker .react-date-picker__calendar-button {
+    display: none; /* Hide the default calendar icon */
+  }
