@@ -1,6 +1,6 @@
-.date-range-picker-container {
+  .date-range-picker-container {
     width: fit-content;
-    margin-top: 20px;
+    padding: 8px;
   }
   
   .date-range-picker {

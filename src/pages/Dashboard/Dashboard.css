@@ -1,6 +1,10 @@
 .dashboard-container {
-    padding: 20px;
-    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    margin-top: 20px;
   }
   
   .dashboard-title {
@@ -8,6 +12,10 @@
     margin-bottom: 20px;
     font-size: 2rem;
     color: #333;
+  }
+
+  .dashboard-date-picker-container {
+    margin-bottom: 20px;
   }
   
   .summary-cards-container {

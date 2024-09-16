@@ -19,10 +19,10 @@ function NavBar() {
               <Link className="nav-link" to="/analytics">Analytics</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/portfolio">Portfolio</Link>
+              <Link className="nav-link" to="/dashboard">Dashboard</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/dashboard">Dashboard</Link>
+              <Link className="nav-link" to="/portfolio">Portfolio</Link>
             </li>
           </ul>
         </div>
