@@ -13,16 +13,13 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto"> {/* Added ms-auto to move items to the right */}
             <li className="nav-item">
-              <Link className="nav-link" to="/">Home</Link>
+              <Link className="nav-link" to="/portfolio">Portfolio</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/analytics">Analytics</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/dashboard">Dashboard</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/portfolio">Portfolio</Link>
             </li>
           </ul>
         </div>
